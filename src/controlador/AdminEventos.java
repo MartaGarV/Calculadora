@@ -2,11 +2,15 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 
 import vista.Calculadora;
+import vista.Resultados;
+import vista.Teclado;
 
 
 
@@ -14,7 +18,11 @@ public class AdminEventos implements ActionListener {
 	
 	//creo una variable
 			private Calculadora calculadora;
+			private Teclado teclado;
+			private static ArrayList<String> resultados= new ArrayList<String>();;
+			Resultados r= new Resultados();
 			
+						
 			//constructor al que le pasamos la propia calculadora como parámetro
 				public AdminEventos(Calculadora calculadora) {
 					//vamos a guardar el objeto calculadora en la variable calculadora
@@ -24,8 +32,19 @@ public class AdminEventos implements ActionListener {
 			 
 			//Acciones de cada botón
 				public void actionPerformed(ActionEvent e) { 
+					
+					if(e.getSource() == calculadora.getTeclado()) {
+						teclado = new Teclado(calculadora);
+					}else if(e.getSource()== calculadora.getHistorial()) {
+						if(resultados.size()>5) {
+							resultados.remove(0);
+						}
+						r.refrescar();
+						r.setVisible(true);
+						
+					}
 					//Aviso de funcionalidad no disponible para la raíz cuadrada
-					if(e.getSource()== calculadora.getR_cuadrada()) {
+					else if(e.getSource()== calculadora.getR_cuadrada()) {
 						JOptionPane.showMessageDialog(calculadora,"Funcionalidad no disponible","Aviso", 
 								JOptionPane.INFORMATION_MESSAGE);
 					}
@@ -70,15 +89,26 @@ public class AdminEventos implements ActionListener {
 						
 						//SUMA
 						if(e.getSource()== calculadora.getSumar()) {
-							calculadora.getEtiqueta4().setText(String.valueOf(suma));	
+							
+							calculadora.getEtiqueta4().setText(String.valueOf(suma));
+							String suma1= calculadora.getCajaTexto1().getText() + " " + "+" + " "+ calculadora.getCajaTexto2().getText()+ " " + "=" + " " + " " + suma;
+							getResultados().add(suma1);
+							
+							
 						}
 						//RESTA
 						else if(e.getSource()== calculadora.getRestar()) {	
-							calculadora.getEtiqueta4().setText(String.valueOf(resta));	
+							calculadora.getEtiqueta4().setText(String.valueOf(resta));
+							String resta1= calculadora.getCajaTexto1().getText() + " " + "-" + " "+ calculadora.getCajaTexto2().getText()+ " " + "=" + " " + " " + resta;
+							getResultados().add(resta1);
+							
+							
 						}
 						//MULTIPLICACIÓN
 						else if(e.getSource()== calculadora.getMultiplicar()) {
-							calculadora.getEtiqueta4().setText(String.valueOf(multi));	
+							calculadora.getEtiqueta4().setText(String.valueOf(multi));
+							String multi1= calculadora.getCajaTexto1().getText() + " " + "x" + " "+ calculadora.getCajaTexto2().getText()+ " " + "=" + " " + " " + multi;
+							getResultados().add(multi1);
 						}
 						//DIVISIÓN
 						else if(e.getSource()== calculadora.getDividir()) {		
@@ -88,8 +118,12 @@ public class AdminEventos implements ActionListener {
 							} else {
 								int div = num1/num2;
 								calculadora.getEtiqueta4().setText(String.valueOf(div));
+								String div1= calculadora.getCajaTexto1().getText() + " " + "/" + " "+ calculadora.getCajaTexto2().getText()+ " " + "=" + " " + " " + div;
+								getResultados().add(div1);
+								
 							}
-						}	
+						}
+	
 						//Devolvemos el foco a la primera caja
 						calculadora.getCajaTexto1().requestFocus();	
 					}
@@ -99,4 +133,12 @@ public class AdminEventos implements ActionListener {
 				}
 		}
 	}
+
+				public static ArrayList<String> getResultados() {
+					return resultados;
+				}
+
+				public static void setResultados(ArrayList<String> resultados) {
+					AdminEventos.resultados = resultados;
+				}
 }

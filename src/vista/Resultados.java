@@ -36,6 +36,7 @@ public class Resultados extends JDialog {
 		//visibilidad de la ventana. esta instrucción SIEMPRE ha de ir la última
 			setVisible(false);		
 		}
+	
 	public void inicializarComponentes() {
 		resultado1= new JLabel("Resultados: ");
 		resultado1.setBounds(20, 20, 500, 100);
