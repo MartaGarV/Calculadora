@@ -13,7 +13,7 @@ public class Teclado extends JDialog{
 	public Teclado(Calculadora ventana) {
 		this.ventana = ventana;
 		setSize(275, 460);
-		setLocation((int)ventana.getLocationOnScreen().getX()+350, (int)ventana.getLocationOnScreen().getY());
+		setLocation((int)ventana.getLocationOnScreen().getX()+400, (int)ventana.getLocationOnScreen().getY() + 60);
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		setIconImage(ventana.getIconImage());
 		setResizable(false);
@@ -88,8 +88,8 @@ public class Teclado extends JDialog{
 	}
 	
 	public void comprobarModo() {
-		/*
-		 * if(ventana.getModoNormal().isSelected()) {
+		
+		if(ventana.getModoNormal().isSelected()) {
 			getContentPane().setBackground(new Color(178, 235, 242));
 			 
 			num1.setBackground(new Color(0, 151, 167));
@@ -153,9 +153,7 @@ public class Teclado extends JDialog{
 			
 			num0.setBackground(new Color(205, 220, 57));
 			num0.setForeground(new Color(33, 33, 33));
-		}
-		 */
-		
+		}		
 		
 	}
 

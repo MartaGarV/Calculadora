@@ -104,7 +104,7 @@ public class Calculadora extends JFrame {
 					add(etiqueta1);
 					
 					etiqueta4= new JLabel("");
-					etiqueta4.setBounds(100, 430, 200, 30);
+					etiqueta4.setBounds(95, 430, 200, 30);
 					etiqueta4.setHorizontalAlignment(SwingConstants.CENTER);
 					etiqueta4.setForeground(new Color(117, 117, 117));
 					etiqueta4.setFont(font.deriveFont(Font.BOLD, 35f));
@@ -168,7 +168,7 @@ public class Calculadora extends JFrame {
 				r_cubica.addActionListener(new AdminEventos(this));
 				
 				historial= new JButton("");
-				historial.setBounds(270, 420, 50,40);
+				historial.setBounds(300, 420, 50,40);
 				historial.setIcon(new ImageIcon("flecha.png"));
 				historial.setBorder(new MatteBorder(null));
 				add(historial);
@@ -177,22 +177,21 @@ public class Calculadora extends JFrame {
 				teclado = new JButton("teclado");
 				teclado.setBounds(0, 400, 100, 50);
 				teclado.addActionListener(new AdminEventos(this));
-				this.add(teclado);
-				
-				etiqueta3= new JLabel("RESULTADO :");
-				etiqueta3.setBounds(90, 340, 150, 30);
-				etiqueta3.setForeground(new Color(105,105,105));
-				etiqueta3.setFont(new Font("Dialog", Font.BOLD,15));
-				add(etiqueta3);					
+				add(teclado);				
 				
 				modoNormal = new JRadioButton("normal");
 				modoNormal.setBounds(70, 500, 100, 30);
-				
-
+				modoNormal.setSelected(true);
+				modoNormal.setBackground(getContentPane().getBackground());
+				modoNormal.setFocusable(false);
+				modoNormal.addChangeListener(new AdminEventos(this));
 				add(modoNormal);
 				
 				modoAccesibilidad = new JRadioButton("accesibilidad");
 				modoAccesibilidad.setBounds(250, 500, 100, 30);
+				modoAccesibilidad.setBackground(getContentPane().getBackground());
+				modoAccesibilidad.setFocusable(false);
+				modoAccesibilidad.addActionListener(new AdminEventos(this));
 				add(modoAccesibilidad);
 				
 				grupo = new ButtonGroup();
