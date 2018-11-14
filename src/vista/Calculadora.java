@@ -7,10 +7,12 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.io.IOException;
 
+import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.MatteBorder;
@@ -25,13 +27,15 @@ public class Calculadora extends JFrame {
 			//hay que referenciarlas al principio y son globales
 			private JLabel etiqueta1, etiqueta2, etiqueta3, etiqueta4, logo;
 			private JTextField cajaTexto1, cajaTexto2;
-			private JButton sumar, restar, multiplicar, dividir,r_cuadrada,r_cubica;
+			private JButton sumar, restar, multiplicar, dividir,r_cuadrada,r_cubica, historial;
+			private JRadioButton radio1,radio2;
+			private ButtonGroup grupo;
 			
 			//creamos el constructor sin parámetros
 			public Calculadora() {
 				//Métodos
 				//le damos un tamaño
-				setSize(350, 460);
+				setSize(400, 580);
 			//ubicación en pantalla por medio de coordenadas
 			//con este método en particular, centramos la ventana
 				setLocationRelativeTo(null);
@@ -42,7 +46,7 @@ public class Calculadora extends JFrame {
 			//ponemos un título
 				setTitle("CALCULADORA");
 			//cambiamos el icono de java por otro que queramos	
-				setIconImage(Toolkit.getDefaultToolkit().getImage("calculating.png"));
+				setIconImage(Toolkit.getDefaultToolkit().getImage("logo.png"));
 			//para colocar los componentes de forma manual desactivamos el layout
 				setLayout(null);
 			//función para inicializar los componentes	
@@ -55,31 +59,58 @@ public class Calculadora extends JFrame {
 			//todos los componentes son propiedades de la clase
 			private void inicializarComponentes() {
 				//añado un color background
-				getContentPane().setBackground(new Color(135,206,250));
+				getContentPane().setBackground(new Color(178, 235, 242));
 
-				Image img = new ImageIcon("sings.png").getImage();
-				logo = new JLabel(new ImageIcon(img.getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
-				logo.setBounds(130,5,80,80);
+				Image img = new ImageIcon("logo.png").getImage();
+				logo = new JLabel(new ImageIcon(img.getScaledInstance(60, 60, Image.SCALE_SMOOTH)));
+				logo.setBounds(290,15,80,80);
 				add(logo);
 			
 				try {
-					Font font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("DS-DIGII.TTF"));
+					Font font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("H.H. Samuel-font-defharo.ttf"));
 					
 					cajaTexto1 = new JTextField();
-					cajaTexto1.setBounds(160, 100, 90, 30);
-					cajaTexto1.setFont(font.deriveFont(Font.BOLD, 20f));
-					cajaTexto1.setForeground(new Color(105,105,105));
+					
+					cajaTexto1.setBounds(70, 110, 260, 40);
+					cajaTexto1.setFont(font.deriveFont(Font.PLAIN, 25f));
+					cajaTexto1.setForeground(new Color(189, 189, 189));
+					TextPrompt placeholder = new TextPrompt("Número 1", cajaTexto1);
+					placeholder.changeAlpha(0.75f);
+					placeholder.changeStyle(Font.ITALIC);
 					//le quito los bordes
 					cajaTexto1.setBorder(null);
 					add(cajaTexto1);
 					
 					cajaTexto2 = new JTextField();
-					cajaTexto2.setBounds(160, 150, 90, 30);
-					cajaTexto2.setFont(font.deriveFont(Font.BOLD, 20f));
-					cajaTexto2.setForeground(new Color(105,105,105));
+					cajaTexto2.setBounds(70, 170, 260, 40);
+					cajaTexto2.setFont(font.deriveFont(Font.PLAIN, 25f));
+					cajaTexto2.setForeground(new Color(0, 151, 167));
+					TextPrompt placeholder1 = new TextPrompt("Número 2", cajaTexto2);
+					placeholder.changeAlpha(0.75f);
+					placeholder.changeStyle(Font.ITALIC);
 					//le quito los bordes
 					cajaTexto2.setBorder(null);
 					add(cajaTexto2);
+					
+					etiqueta1= new JLabel("CALCULADORA");
+					etiqueta1.setBounds(70, 35, 230, 40);
+					etiqueta1.setFont(font.deriveFont(Font.BOLD, 45f));
+					etiqueta1.setForeground(new Color(105,105,105));
+					add(etiqueta1);
+					
+					etiqueta4= new JLabel("");
+					etiqueta4.setBounds(100, 430, 200, 30);
+					etiqueta4.setHorizontalAlignment(SwingConstants.CENTER);
+					etiqueta4.setForeground(new Color(117, 117, 117));
+					etiqueta4.setFont(font.deriveFont(Font.BOLD, 35f));
+					add(etiqueta4);
+					
+					etiqueta2= new JLabel("=");
+					etiqueta2.setBounds(90, 430, 200, 30);
+					etiqueta2.setForeground(new Color(117, 117, 117));
+					etiqueta2.setFont(font.deriveFont(Font.BOLD, 35f));
+					add(etiqueta2);
+					
 					
 				} catch (FontFormatException e) {
 					
@@ -90,70 +121,71 @@ public class Calculadora extends JFrame {
 				}
 				
 				
-				
-				etiqueta1= new JLabel("NÚMERO 1 :");
-				etiqueta1.setBounds(90, 100, 70, 30);
-				etiqueta1.setForeground(new Color(105,105,105));
-				add(etiqueta1);
-				
-				etiqueta2= new JLabel("NÚMERO 2 :");
-				etiqueta2.setBounds(90, 150, 70, 30);
-				etiqueta2.setForeground(new Color(105,105,105));
-				add(etiqueta2);
-								
+	
 				sumar= new JButton("");
-				sumar.setBounds(110, 220, 45,45);
-				sumar.setIcon(new ImageIcon("plus-box.png"));
+				sumar.setBounds(60, 240, 100, 80);
+				sumar.setIcon(new ImageIcon("mas.png"));
 				sumar.setBorder(new MatteBorder(null));
 				add(sumar);
 				sumar.addActionListener(new AdminEventos(this));
 				
 				multiplicar= new JButton("");
-				multiplicar.setBounds(110, 270, 45,45);
-				multiplicar.setIcon(new ImageIcon("multiplication-box.png"));
+				multiplicar.setBounds(60, 320, 100, 80);
+				multiplicar.setIcon(new ImageIcon("por.png"));
 				multiplicar.setBorder(new MatteBorder(null));
 				add(multiplicar);
 				multiplicar.addActionListener(new AdminEventos(this));
 				
 				restar= new JButton("");
-				restar.setBounds(180, 220, 45, 45);
-				restar.setIcon(new ImageIcon("minus-box.png"));
+				restar.setBounds(155, 240, 100, 80);
+				restar.setIcon(new ImageIcon("menos.png"));
 				restar.setBorder(new MatteBorder(null));
 				add(restar);
 				restar.addActionListener(new AdminEventos(this));
 				
 				dividir= new JButton("");
-				dividir.setBounds(180, 270, 45,45);
-				dividir.setIcon(new ImageIcon("division-box.png"));
+				dividir.setBounds(155, 320, 100, 80);
+				dividir.setIcon(new ImageIcon("entre.png"));
 				dividir.setBorder(new MatteBorder(null));
 				add(dividir);
 				dividir.addActionListener(new AdminEventos(this));
 				
 				r_cuadrada= new JButton("");
-				r_cuadrada.setBounds(250, 220, 45, 45);
-				r_cuadrada.setIcon(new ImageIcon("square-root.png"));
+				r_cuadrada.setBounds(250, 240, 100, 80);
+				r_cuadrada.setIcon(new ImageIcon("raiz2.png"));
 				r_cuadrada.setBorder(new MatteBorder(null));
 				add(r_cuadrada);
 				r_cuadrada.addActionListener(new AdminEventos(this));
 				
 				r_cubica= new JButton("");
-				r_cubica.setBounds(250, 270, 45,45);
-				r_cubica.setIcon(new ImageIcon("cube.png"));
+				r_cubica.setBounds(250, 320, 100, 80);
+				r_cubica.setIcon(new ImageIcon("raiz3.png"));
 				r_cubica.setBorder(new MatteBorder(null));
 				add(r_cubica);
 				r_cubica.addActionListener(new AdminEventos(this));
 				
-				etiqueta3= new JLabel("RESULTADO :");
-				etiqueta3.setBounds(90, 340, 150, 30);
-				etiqueta3.setForeground(new Color(105,105,105));
-				etiqueta3.setFont(new Font("Dialog", Font.BOLD,15));
-				add(etiqueta3);
+				historial= new JButton("");
+				historial.setBounds(270, 420, 50,40);
+				historial.setIcon(new ImageIcon("flecha.png"));
+				historial.setBorder(new MatteBorder(null));
+				add(historial);
+				historial.addActionListener(new AdminEventos(this));
 				
-				etiqueta4= new JLabel("");
-				etiqueta4.setBounds(60, 370, 200, 30);
-				etiqueta4.setForeground(new Color(255,20,147));
-				etiqueta4.setFont(new Font("Dialog", Font.BOLD,15));
-				add(etiqueta4);
+				
+				
+				radio1 = new JRadioButton("normal");
+				radio1.setBounds(70, 500, 100, 30);
+				
+				add(radio1);
+				
+				radio2 = new JRadioButton("accesibilidad");
+				radio2.setBounds(250, 500, 100, 30);
+				add(radio2);
+				
+				grupo = new ButtonGroup();
+				grupo.add(radio1);
+				grupo.add(radio2);
+				
 				
 			}
 
