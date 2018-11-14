@@ -10,6 +10,7 @@ import java.io.IOException;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
@@ -23,9 +24,10 @@ public class Calculadora extends JFrame {
 
 	//los componentes de la ventana son las variables de la clase
 			//hay que referenciarlas al principio y son globales
+	        private JDialog ventanaSecundaria;
 			private JLabel etiqueta1, etiqueta2, etiqueta3, etiqueta4, logo;
 			private JTextField cajaTexto1, cajaTexto2;
-			private JButton sumar, restar, multiplicar, dividir,r_cuadrada,r_cubica;
+			private JButton sumar, restar, multiplicar, dividir,r_cuadrada,r_cubica, resultados, teclado;
 			
 			//creamos el constructor sin parámetros
 			public Calculadora() {
@@ -50,6 +52,8 @@ public class Calculadora extends JFrame {
 			//visibilidad de la ventana. esta instrucción SIEMPRE ha de ir la última
 				setVisible(true);			
 			}
+			
+			
 		
 			//creamos, damos tamaño, ubicación en pantalla y añadimos los componentes
 			//todos los componentes son propiedades de la clase
@@ -88,8 +92,6 @@ public class Calculadora extends JFrame {
 					
 					e.printStackTrace();
 				}
-				
-				
 				
 				etiqueta1= new JLabel("NÚMERO 1 :");
 				etiqueta1.setBounds(90, 100, 70, 30);
@@ -143,6 +145,11 @@ public class Calculadora extends JFrame {
 				add(r_cubica);
 				r_cubica.addActionListener(new AdminEventos(this));
 				
+				teclado = new JButton("teclado");
+				teclado.setBounds(0, 400, 100, 50);
+				teclado.addActionListener(new AdminEventos(this));
+				this.add(teclado);
+				
 				etiqueta3= new JLabel("RESULTADO :");
 				etiqueta3.setBounds(90, 340, 150, 30);
 				etiqueta3.setForeground(new Color(105,105,105));
@@ -183,6 +190,10 @@ public class Calculadora extends JFrame {
 			public JButton getR_cubica() {
 				return r_cubica;
 			}
+			
+			public JButton getResultados() {
+				return resultados;
+			}
 			//Los getter de las cajas de texto
 			public JTextField getCajaTexto1() {
 				return cajaTexto1;
@@ -195,6 +206,18 @@ public class Calculadora extends JFrame {
 			//Y el get de la etiqueta 3, que contiene el resultado
 			public JLabel getEtiqueta4() {
 				return etiqueta4;
+			}
+
+
+
+			public JButton getTeclado() {
+				return teclado;
+			}
+
+
+
+			public void setTeclado(JButton teclado) {
+				this.teclado = teclado;
 			}
 
 }
