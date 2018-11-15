@@ -11,6 +11,7 @@ import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
@@ -25,11 +26,17 @@ public class Calculadora extends JFrame {
 
 	//los componentes de la ventana son las variables de la clase
 			//hay que referenciarlas al principio y son globales
+	        private JDialog ventanaSecundaria;
 			private JLabel etiqueta1, etiqueta2, etiqueta3, etiqueta4, logo;
 			private JTextField cajaTexto1, cajaTexto2;
-			private JButton sumar, restar, multiplicar, dividir,r_cuadrada,r_cubica, historial;
-			private JRadioButton radio1,radio2;
+
+			private JButton sumar, restar, multiplicar, dividir,r_cuadrada,r_cubica, historial, teclado;
+			private JRadioButton modoNormal,modoAccesibilidad;
 			private ButtonGroup grupo;
+
+
+			
+
 			
 			//creamos el constructor sin parámetros
 			public Calculadora() {
@@ -54,6 +61,8 @@ public class Calculadora extends JFrame {
 			//visibilidad de la ventana. esta instrucción SIEMPRE ha de ir la última
 				setVisible(true);			
 			}
+			
+			
 		
 			//creamos, damos tamaño, ubicación en pantalla y añadimos los componentes
 			//todos los componentes son propiedades de la clase
@@ -99,7 +108,11 @@ public class Calculadora extends JFrame {
 					add(etiqueta1);
 					
 					etiqueta4= new JLabel("");
+
 					etiqueta4.setBounds(100, 430, 200, 30);
+
+					etiqueta4.setBounds(95, 430, 200, 30);
+
 					etiqueta4.setHorizontalAlignment(SwingConstants.CENTER);
 					etiqueta4.setForeground(new Color(117, 117, 117));
 					etiqueta4.setFont(font.deriveFont(Font.BOLD, 35f));
@@ -111,6 +124,28 @@ public class Calculadora extends JFrame {
 					etiqueta2.setFont(font.deriveFont(Font.BOLD, 35f));
 					add(etiqueta2);
 					
+					modoNormal = new JRadioButton("normal");
+					modoNormal.setBounds(70, 500, 120, 30);
+					modoNormal.setSelected(true);
+					modoNormal.setBackground(getContentPane().getBackground());
+					modoNormal.setForeground(new Color(117, 117, 117));
+					modoNormal.setFont(font.deriveFont(Font.PLAIN, 28f));
+					modoNormal.setFocusable(false);
+					modoNormal.addChangeListener(new AdminEventos(this));
+					add(modoNormal);
+
+
+
+					modoAccesibilidad = new JRadioButton("accesibilidad");
+					modoAccesibilidad.setBounds(220, 500, 150, 30);
+					modoAccesibilidad.setBackground(getContentPane().getBackground());
+					modoAccesibilidad.setForeground(new Color(117, 117, 117));
+					modoAccesibilidad.setFont(font.deriveFont(Font.PLAIN, 28f));
+					modoAccesibilidad.setFocusable(false);
+					modoAccesibilidad.addChangeListener(new AdminEventos(this));
+					add(modoAccesibilidad);
+					
+					
 					
 				} catch (FontFormatException e) {
 					
@@ -119,72 +154,79 @@ public class Calculadora extends JFrame {
 					
 					e.printStackTrace();
 				}
-				
-				
-	
+
 				sumar= new JButton("");
 				sumar.setBounds(60, 240, 100, 80);
-				sumar.setIcon(new ImageIcon("mas.png"));
+				sumar.setIcon(new ImageIcon("ima1/mas.png"));
 				sumar.setBorder(new MatteBorder(null));
 				add(sumar);
 				sumar.addActionListener(new AdminEventos(this));
+				sumar.addMouseListener(new AdminEventos(this));
 				
 				multiplicar= new JButton("");
 				multiplicar.setBounds(60, 320, 100, 80);
-				multiplicar.setIcon(new ImageIcon("por.png"));
+				multiplicar.setIcon(new ImageIcon("ima1/por.png"));
 				multiplicar.setBorder(new MatteBorder(null));
 				add(multiplicar);
 				multiplicar.addActionListener(new AdminEventos(this));
+				multiplicar.addMouseListener(new AdminEventos(this));
 				
 				restar= new JButton("");
 				restar.setBounds(155, 240, 100, 80);
-				restar.setIcon(new ImageIcon("menos.png"));
+				restar.setIcon(new ImageIcon("ima1/menos.png"));
 				restar.setBorder(new MatteBorder(null));
 				add(restar);
 				restar.addActionListener(new AdminEventos(this));
+				restar.addMouseListener(new AdminEventos(this));
 				
 				dividir= new JButton("");
 				dividir.setBounds(155, 320, 100, 80);
-				dividir.setIcon(new ImageIcon("entre.png"));
+				dividir.setIcon(new ImageIcon("ima1/entre.png"));
 				dividir.setBorder(new MatteBorder(null));
 				add(dividir);
 				dividir.addActionListener(new AdminEventos(this));
+				dividir.addMouseListener(new AdminEventos(this));
 				
 				r_cuadrada= new JButton("");
 				r_cuadrada.setBounds(250, 240, 100, 80);
-				r_cuadrada.setIcon(new ImageIcon("raiz2.png"));
+				r_cuadrada.setIcon(new ImageIcon("ima1/raiz2.png"));
 				r_cuadrada.setBorder(new MatteBorder(null));
 				add(r_cuadrada);
 				r_cuadrada.addActionListener(new AdminEventos(this));
+				r_cuadrada.addMouseListener(new AdminEventos(this));
 				
 				r_cubica= new JButton("");
 				r_cubica.setBounds(250, 320, 100, 80);
-				r_cubica.setIcon(new ImageIcon("raiz3.png"));
+				r_cubica.setIcon(new ImageIcon("ima1/raiz3.png"));
 				r_cubica.setBorder(new MatteBorder(null));
 				add(r_cubica);
 				r_cubica.addActionListener(new AdminEventos(this));
+				r_cubica.addMouseListener(new AdminEventos(this));
 				
+
+
+				teclado = new JButton("teclado");
+				teclado.setBounds(370, 150, 30, 200);
+				teclado.setIcon(new ImageIcon("ima1/teclado.png"));
+				teclado.addActionListener(new AdminEventos(this));
+				teclado.addMouseListener(new AdminEventos(this));
+				teclado.setFocusable(false);
+				add(teclado);			
+				
+
 				historial= new JButton("");
 				historial.setBounds(270, 420, 50,40);
-				historial.setIcon(new ImageIcon("flecha.png"));
+				historial.setIcon(new ImageIcon("ima1/flecha.png"));
 				historial.setBorder(new MatteBorder(null));
 				add(historial);
 				historial.addActionListener(new AdminEventos(this));
-				
-				
-				
-				radio1 = new JRadioButton("normal");
-				radio1.setBounds(70, 500, 100, 30);
-				
-				add(radio1);
-				
-				radio2 = new JRadioButton("accesibilidad");
-				radio2.setBounds(250, 500, 100, 30);
-				add(radio2);
-				
+				historial.addMouseListener(new AdminEventos(this));
+
+
 				grupo = new ButtonGroup();
-				grupo.add(radio1);
-				grupo.add(radio2);
+				grupo.add(modoNormal);
+				grupo.add(modoAccesibilidad);
+
 				
 				
 			}
@@ -215,6 +257,10 @@ public class Calculadora extends JFrame {
 			public JButton getR_cubica() {
 				return r_cubica;
 			}
+			
+			public JButton getHistorial() {
+				return historial;
+			}
 			//Los getter de las cajas de texto
 			public JTextField getCajaTexto1() {
 				return cajaTexto1;
@@ -227,6 +273,171 @@ public class Calculadora extends JFrame {
 			//Y el get de la etiqueta 3, que contiene el resultado
 			public JLabel getEtiqueta4() {
 				return etiqueta4;
+			}
+
+
+			public JButton getTeclado() {
+				return teclado;
+			}
+
+			public void setTeclado(JButton teclado) {
+				this.teclado = teclado;
+			}
+
+
+
+			public JDialog getVentanaSecundaria() {
+				return ventanaSecundaria;
+			}
+
+
+
+			public void setVentanaSecundaria(JDialog ventanaSecundaria) {
+				this.ventanaSecundaria = ventanaSecundaria;
+			}
+
+
+
+			public JLabel getEtiqueta1() {
+				return etiqueta1;
+			}
+
+
+
+			public void setEtiqueta1(JLabel etiqueta1) {
+				this.etiqueta1 = etiqueta1;
+			}
+
+
+
+			public JLabel getEtiqueta2() {
+				return etiqueta2;
+			}
+
+
+
+			public void setEtiqueta2(JLabel etiqueta2) {
+				this.etiqueta2 = etiqueta2;
+			}
+
+
+
+			public JLabel getEtiqueta3() {
+				return etiqueta3;
+			}
+
+
+
+			public void setEtiqueta3(JLabel etiqueta3) {
+				this.etiqueta3 = etiqueta3;
+			}
+
+
+
+			public JLabel getLogo() {
+				return logo;
+			}
+
+
+
+			public void setLogo(JLabel logo) {
+				this.logo = logo;
+			}
+
+
+
+			public JRadioButton getModoNormal() {
+				return modoNormal;
+			}
+
+
+
+			public void setModoNormal(JRadioButton modoNormal) {
+				this.modoNormal = modoNormal;
+			}
+
+
+
+			public JRadioButton getModoAccesibilidad() {
+				return modoAccesibilidad;
+			}
+
+
+
+			public void setModoAccesibilidad(JRadioButton modoAccesibilidad) {
+				this.modoAccesibilidad = modoAccesibilidad;
+			}
+
+
+
+			public ButtonGroup getGrupo() {
+				return grupo;
+			}
+
+
+
+			public void setGrupo(ButtonGroup grupo) {
+				this.grupo = grupo;
+			}
+
+
+
+			public void setEtiqueta4(JLabel etiqueta4) {
+				this.etiqueta4 = etiqueta4;
+			}
+
+
+
+			public void setCajaTexto1(JTextField cajaTexto1) {
+				this.cajaTexto1 = cajaTexto1;
+			}
+
+
+
+			public void setCajaTexto2(JTextField cajaTexto2) {
+				this.cajaTexto2 = cajaTexto2;
+			}
+
+
+
+			public void setSumar(JButton sumar) {
+				this.sumar = sumar;
+			}
+
+
+
+			public void setRestar(JButton restar) {
+				this.restar = restar;
+			}
+
+
+
+			public void setMultiplicar(JButton multiplicar) {
+				this.multiplicar = multiplicar;
+			}
+
+
+
+			public void setDividir(JButton dividir) {
+				this.dividir = dividir;
+			}
+
+
+
+			public void setR_cuadrada(JButton r_cuadrada) {
+				this.r_cuadrada = r_cuadrada;
+			}
+
+
+
+			public void setR_cubica(JButton r_cubica) {
+				this.r_cubica = r_cubica;
+			}
+
+
+
+			public void setHistorial(JButton historial) {
+				this.historial = historial;
 			}
 
 }
