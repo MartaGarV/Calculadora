@@ -136,130 +136,89 @@ public class AdminEventos implements ActionListener, ChangeListener, MouseListen
 	
 	//Método de la interfaz ChangeListener
 	@Override
-	public void stateChanged(ChangeEvent e) {
-		
+	public void stateChanged(ChangeEvent e) {		
 		if(calculadora.getModoNormal().isSelected()) {
-			cambiarAModoNormal();
-			
-		}
-		
+			cambiarAModoNormal();			
+		}		
 		else if(calculadora.getModoAccesibilidad().isSelected()){
 			cambiarAModoAccesibilidad();
-		}
-			
-		
-			
+		}	
 	}
 	
 	
 	//Métodos de la interfaz MouseListener
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
+		// TODO Auto-generated method stub	
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
+		// TODO Auto-generated method stub		
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
+		// TODO Auto-generated method stub		
 	}
 
-	@Override
-	
-	
+	@Override	
 	public void mouseEntered(MouseEvent e) {
 		
-if(calculadora.getModoNormal().isSelected()) {
-	if(e.getSource()==calculadora.getSumar()) {
-		
-		 calculadora.getSumar().setIcon(new ImageIcon("ima1/mas gris.png"));
-		}
-		
-		else if (e.getSource()==calculadora.getMultiplicar()) {
-			calculadora.getMultiplicar().setIcon(new ImageIcon("ima1/por gris.png"));
-		}
-		
-		else if (e.getSource()==calculadora.getRestar()) {
-			calculadora.getRestar().setIcon(new ImageIcon("ima1/menos gris.png"));
-		}
-		
-		else if (e.getSource()==calculadora.getDividir()) {
-			calculadora.getDividir().setIcon(new ImageIcon("ima1/entre gris.png"));
-		}
-		
-		else if (e.getSource()==calculadora.getR_cuadrada()) {
-			calculadora.getR_cuadrada().setIcon(new ImageIcon("ima1/raiz2 gris.png"));
-			
-		}
-		
-		else if(e.getSource()==calculadora.getR_cubica()) {
-			calculadora.getR_cubica().setIcon(new ImageIcon("ima1/raiz3 gris.png"));
-			
-		}
-		
-		else if(e.getSource()==calculadora.getTeclado()) {
-			calculadora.getTeclado().setIcon(new ImageIcon("ima1/teclado gris.png"));
-			
-		}
-		
-		else if (e.getSource()==calculadora.getHistorial()) {
-			
-		calculadora.getHistorial().setIcon(new ImageIcon("ima1/flecha gris.png"));
-		
+		if(calculadora.getModoNormal().isSelected()) {
+			if(e.getSource()==calculadora.getSumar()) {
+				 calculadora.getSumar().setIcon(new ImageIcon("ima1/mas gris.png"));
+			}
+			else if (e.getSource()==calculadora.getMultiplicar()) {
+				calculadora.getMultiplicar().setIcon(new ImageIcon("ima1/por gris.png"));
+			}
+			else if (e.getSource()==calculadora.getRestar()) {
+				calculadora.getRestar().setIcon(new ImageIcon("ima1/menos gris.png"));
+			}
+			else if (e.getSource()==calculadora.getDividir()) {
+				calculadora.getDividir().setIcon(new ImageIcon("ima1/entre gris.png"));
+			}
+			else if (e.getSource()==calculadora.getR_cuadrada()) {
+				calculadora.getR_cuadrada().setIcon(new ImageIcon("ima1/raiz2 gris.png"));
+			}
+			else if(e.getSource()==calculadora.getR_cubica()) {
+				calculadora.getR_cubica().setIcon(new ImageIcon("ima1/raiz3 gris.png"));	
+			}
+			else if(e.getSource()==calculadora.getTeclado()) {
+				calculadora.getTeclado().setIcon(new ImageIcon("ima1/teclado gris.png"));	
+			}
+			else if (e.getSource()==calculadora.getHistorial()) {					
+				calculadora.getHistorial().setIcon(new ImageIcon("ima1/flecha gris.png"));
+			}	
+	
 		}
 
-		
-	
-	
-}
-	
-else if(calculadora.getModoAccesibilidad().isSelected()) {
-	if(e.getSource()==calculadora.getSumar()) {
-		
-		 calculadora.getSumar().setIcon(new ImageIcon("ima2/mas gris contraste.png"));
+		else if(calculadora.getModoAccesibilidad().isSelected()) {
+			if(e.getSource()==calculadora.getSumar()) {
+				calculadora.getSumar().setIcon(new ImageIcon("ima2/mas gris contraste.png"));
+			}				
+			else if (e.getSource()==calculadora.getMultiplicar()) {
+				calculadora.getMultiplicar().setIcon(new ImageIcon("ima2/por gris contraste.png"));
+			}				
+			else if (e.getSource()==calculadora.getRestar()) {
+				calculadora.getRestar().setIcon(new ImageIcon("ima2/menos gris contraste.png"));
+			}
+			else if (e.getSource()==calculadora.getDividir()) {
+				calculadora.getDividir().setIcon(new ImageIcon("ima2/entre gris contraste.png"));
+			}
+			else if (e.getSource()==calculadora.getR_cuadrada()) {
+				calculadora.getR_cuadrada().setIcon(new ImageIcon("ima2/raiz2 gris contraste.png"));					
+			}
+			else if(e.getSource()==calculadora.getR_cubica()) {
+				calculadora.getR_cubica().setIcon(new ImageIcon("ima2/raiz3 gris contraste.png"));					
+			}
+			else if(e.getSource()==calculadora.getTeclado()) {
+				calculadora.getTeclado().setIcon(new ImageIcon("ima2/teclado gris contraste.png"));				
+			}
+			else if (e.getSource()==calculadora.getHistorial()) {				
+			calculadora.getHistorial().setIcon(new ImageIcon("ima2/flecha gris contraste.png"));		
+			}
 		}
-		
-		else if (e.getSource()==calculadora.getMultiplicar()) {
-			calculadora.getMultiplicar().setIcon(new ImageIcon("ima2/por gris contraste.png"));
-		}
-		
-		else if (e.getSource()==calculadora.getRestar()) {
-			calculadora.getRestar().setIcon(new ImageIcon("ima2/menos gris contraste.png"));
-		}
-		
-		else if (e.getSource()==calculadora.getDividir()) {
-			calculadora.getDividir().setIcon(new ImageIcon("ima2/entre gris contraste.png"));
-		}
-		
-		else if (e.getSource()==calculadora.getR_cuadrada()) {
-			calculadora.getR_cuadrada().setIcon(new ImageIcon("ima2/raiz2 gris contraste.png"));
-			
-		}
-		
-		else if(e.getSource()==calculadora.getR_cubica()) {
-			calculadora.getR_cubica().setIcon(new ImageIcon("ima2/raiz3 gris contraste.png"));
-			
-		}
-		
-		else if(e.getSource()==calculadora.getTeclado()) {
-			calculadora.getTeclado().setIcon(new ImageIcon("ima2/teclado gris contraste.png"));
-			
-		}
-		
-		else if (e.getSource()==calculadora.getHistorial()) {
-			
-		calculadora.getHistorial().setIcon(new ImageIcon("ima2/flecha gris contraste.png"));
-		
-		}
-}
-
 
 	}
 
@@ -268,97 +227,70 @@ else if(calculadora.getModoAccesibilidad().isSelected()) {
 		
 		if(calculadora.getModoNormal().isSelected()) {
 			if(e.getSource()==calculadora.getSumar()) {
-				
-				 calculadora.getSumar().setIcon(new ImageIcon("ima1/mas.png"));
-				}
-				
-				else if (e.getSource()==calculadora.getMultiplicar()) {
-					calculadora.getMultiplicar().setIcon(new ImageIcon("ima1/por.png"));
-				}
-				
-				else if (e.getSource()==calculadora.getRestar()) {
-					calculadora.getRestar().setIcon(new ImageIcon("ima1/menos.png"));
-				}
-				
-				else if (e.getSource()==calculadora.getDividir()) {
-					calculadora.getDividir().setIcon(new ImageIcon("ima1/entre.png"));
-				}
-				
-				else if (e.getSource()==calculadora.getR_cuadrada()) {
-					calculadora.getR_cuadrada().setIcon(new ImageIcon("ima1/raiz2.png"));
-					
-				}
-				
-				else if(e.getSource()==calculadora.getR_cubica()) {
-					calculadora.getR_cubica().setIcon(new ImageIcon("ima1/raiz3.png"));
-					
-				}
-				
-				else if(e.getSource()==calculadora.getTeclado()) {
-					calculadora.getTeclado().setIcon(new ImageIcon("ima1/teclado.png"));
-					
-				}
-				
-				else if (e.getSource()==calculadora.getHistorial()) {
-					
-				calculadora.getHistorial().setIcon(new ImageIcon("ima1/flecha.png"));
-				
-				}
+				calculadora.getSumar().setIcon(new ImageIcon("ima1/mas.png"));
+			}
+			else if (e.getSource()==calculadora.getMultiplicar()) {
+				calculadora.getMultiplicar().setIcon(new ImageIcon("ima1/por.png"));
+			}
+			else if (e.getSource()==calculadora.getRestar()) {
+				calculadora.getRestar().setIcon(new ImageIcon("ima1/menos.png"));
+			}
+			else if (e.getSource()==calculadora.getDividir()) {
+				calculadora.getDividir().setIcon(new ImageIcon("ima1/entre.png"));
+			}
+			else if (e.getSource()==calculadora.getR_cuadrada()) {
+				calculadora.getR_cuadrada().setIcon(new ImageIcon("ima1/raiz2.png"));			
+			}
+			else if(e.getSource()==calculadora.getR_cubica()) {
+				calculadora.getR_cubica().setIcon(new ImageIcon("ima1/raiz3.png"));			
+			}
+			else if(e.getSource()==calculadora.getTeclado()) {
+				calculadora.getTeclado().setIcon(new ImageIcon("ima1/teclado.png"));
+			}
+			else if (e.getSource()==calculadora.getHistorial()) {
+				calculadora.getHistorial().setIcon(new ImageIcon("ima1/flecha.png"));			
+			}
 
 		}
+		
 		else if(calculadora.getModoAccesibilidad().isSelected()) {
-			if(e.getSource()==calculadora.getSumar()) {
-				
-				 calculadora.getSumar().setIcon(new ImageIcon("ima2/mas contraste.png"));
-				}
-				
-				else if (e.getSource()==calculadora.getMultiplicar()) {
-					calculadora.getMultiplicar().setIcon(new ImageIcon("ima2/por contraste.png"));
-				}
-				
-				else if (e.getSource()==calculadora.getRestar()) {
-					calculadora.getRestar().setIcon(new ImageIcon("ima2/menos contraste.png"));
-				}
-				
-				else if (e.getSource()==calculadora.getDividir()) {
-					calculadora.getDividir().setIcon(new ImageIcon("ima2/entre contraste.png"));
-				}
-				
-				else if (e.getSource()==calculadora.getR_cuadrada()) {
-					calculadora.getR_cuadrada().setIcon(new ImageIcon("ima2/raiz2 contraste.png"));
-					
-				}
-				
-				else if(e.getSource()==calculadora.getR_cubica()) {
-					calculadora.getR_cubica().setIcon(new ImageIcon("ima2/raiz3 contraste.png"));
-					
-				}
-				
-				else if(e.getSource()==calculadora.getTeclado()) {
-					calculadora.getTeclado().setIcon(new ImageIcon("ima2/teclado contraste.png"));
-					
-				}
-				
-				else if (e.getSource()==calculadora.getHistorial()) {
-					
-				calculadora.getHistorial().setIcon(new ImageIcon("ima2/flecha contraste.png"));
-				
-				}
-
+			if(e.getSource()==calculadora.getSumar()) {		
+				calculadora.getSumar().setIcon(new ImageIcon("ima2/mas contraste.png"));
+			}				
+			else if (e.getSource()==calculadora.getMultiplicar()) {
+				calculadora.getMultiplicar().setIcon(new ImageIcon("ima2/por contraste.png"));
+			}				
+			else if (e.getSource()==calculadora.getRestar()) {
+				calculadora.getRestar().setIcon(new ImageIcon("ima2/menos contraste.png"));
+			}				
+			else if (e.getSource()==calculadora.getDividir()) {
+				calculadora.getDividir().setIcon(new ImageIcon("ima2/entre contraste.png"));
+			}				
+			else if (e.getSource()==calculadora.getR_cuadrada()) {
+				calculadora.getR_cuadrada().setIcon(new ImageIcon("ima2/raiz2 contraste.png"));					
+			}				
+			else if(e.getSource()==calculadora.getR_cubica()) {
+				calculadora.getR_cubica().setIcon(new ImageIcon("ima2/raiz3 contraste.png"));					
+			}				
+			else if(e.getSource()==calculadora.getTeclado()) {
+				calculadora.getTeclado().setIcon(new ImageIcon("ima2/teclado contraste.png"));					
+			}				
+			else if (e.getSource()==calculadora.getHistorial()) {					
+			calculadora.getHistorial().setIcon(new ImageIcon("ima2/flecha contraste.png"));				
+			}
 		}
 			
-		}
+	}
 		
 	
 	public void cambiarAModoNormal() {
-
-		
 		calculadora.getContentPane().setBackground(new Color(178, 235, 242));
 		calculadora.getCajaTexto1().setForeground(new Color(189, 189, 189));
 		calculadora.getCajaTexto2().setForeground(new Color(0, 151, 167));
 		calculadora.getEtiqueta1().setForeground(new Color(105,105,105));
 		calculadora.getEtiqueta4().setForeground(new Color(117, 117, 117));
 		calculadora.getEtiqueta2().setForeground(new Color(117, 117, 117));
+		
 		calculadora.getModoNormal().setBackground(calculadora.getContentPane().getBackground());
 		calculadora.getModoNormal().setForeground(new Color(117, 117, 117));
 		calculadora.getModoAccesibilidad().setBackground(calculadora.getContentPane().getBackground());
@@ -371,41 +303,30 @@ else if(calculadora.getModoAccesibilidad().isSelected()) {
 		calculadora.getR_cuadrada().setIcon(new ImageIcon("ima1/raiz2.png"));
 		calculadora.getR_cubica().setIcon(new ImageIcon("ima1/raiz3.png"));
 		calculadora.getTeclado().setIcon(new ImageIcon("ima1/teclado.png"));
-		calculadora.getHistorial().setIcon(new ImageIcon("ima1/flecha.png"));
-		
-		
-		
-		
-		
-		
-		
+		calculadora.getHistorial().setIcon(new ImageIcon("ima1/flecha.png"));		
 	}
 
-public void cambiarAModoAccesibilidad() {
+	public void cambiarAModoAccesibilidad() {
+		calculadora.getContentPane().setBackground(new Color(33, 33, 33));
+		calculadora.getCajaTexto1().setForeground(new Color(189, 189, 189));
+		calculadora.getCajaTexto2().setForeground(new Color(33, 33, 33));
+		calculadora.getEtiqueta1().setForeground(new Color(205, 220, 57));
+		calculadora.getEtiqueta4().setForeground(new Color(117, 117, 117));
+		calculadora.getEtiqueta2().setForeground(new Color(205, 220, 57));
 		
-	calculadora.getContentPane().setBackground(new Color(33, 33, 33));
-	calculadora.getCajaTexto1().setForeground(new Color(189, 189, 189));
-	calculadora.getCajaTexto2().setForeground(new Color(33, 33, 33));
-	calculadora.getEtiqueta1().setForeground(new Color(205, 220, 57));
-	calculadora.getEtiqueta4().setForeground(new Color(117, 117, 117));
-	calculadora.getEtiqueta2().setForeground(new Color(205, 220, 57));
-	calculadora.getModoNormal().setBackground(calculadora.getContentPane().getBackground());
-	calculadora.getModoNormal().setForeground(new Color(117, 117, 117));
-	calculadora.getModoAccesibilidad().setBackground(calculadora.getContentPane().getBackground());
-	calculadora.getModoAccesibilidad().setForeground(new Color(117, 117, 117));
-	
-	calculadora.getSumar().setIcon(new ImageIcon("ima2/mas contraste.png"));
-	calculadora.getMultiplicar().setIcon(new ImageIcon("ima2/por contraste.png"));
-	calculadora.getRestar().setIcon(new ImageIcon("ima2/menos contraste.png"));
-	calculadora.getDividir().setIcon(new ImageIcon("ima2/entre contraste.png"));
-	calculadora.getR_cuadrada().setIcon(new ImageIcon("ima2/raiz2 contraste.png"));
-	calculadora.getR_cubica().setIcon(new ImageIcon("ima2/raiz3 contraste.png"));
-	calculadora.getTeclado().setIcon(new ImageIcon("ima2/teclado contraste.png"));
-	calculadora.getHistorial().setIcon(new ImageIcon("ima2/flecha contraste.png"));
-	
-	
-	
-	
+		calculadora.getModoNormal().setBackground(calculadora.getContentPane().getBackground());
+		calculadora.getModoNormal().setForeground(new Color(117, 117, 117));
+		calculadora.getModoAccesibilidad().setBackground(calculadora.getContentPane().getBackground());
+		calculadora.getModoAccesibilidad().setForeground(new Color(117, 117, 117));
+		
+		calculadora.getSumar().setIcon(new ImageIcon("ima2/mas contraste.png"));
+		calculadora.getMultiplicar().setIcon(new ImageIcon("ima2/por contraste.png"));
+		calculadora.getRestar().setIcon(new ImageIcon("ima2/menos contraste.png"));
+		calculadora.getDividir().setIcon(new ImageIcon("ima2/entre contraste.png"));
+		calculadora.getR_cuadrada().setIcon(new ImageIcon("ima2/raiz2 contraste.png"));
+		calculadora.getR_cubica().setIcon(new ImageIcon("ima2/raiz3 contraste.png"));
+		calculadora.getTeclado().setIcon(new ImageIcon("ima2/teclado contraste.png"));
+		calculadora.getHistorial().setIcon(new ImageIcon("ima2/flecha contraste.png"));
 	
 	}
 
@@ -415,11 +336,6 @@ public void cambiarAModoAccesibilidad() {
 
 	public static void setResultados(ArrayList<String> resultados) {
 		AdminEventos.resultados = resultados;
-	}
-
-	
-	
-				
-				
+	}			
 				
 }
