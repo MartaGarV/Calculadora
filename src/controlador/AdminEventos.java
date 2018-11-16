@@ -11,6 +11,7 @@ import java.util.Arrays;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
+import javax.swing.SwingConstants;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
@@ -284,10 +285,12 @@ public class AdminEventos implements ActionListener, ChangeListener, MouseListen
 		
 	
 	public void cambiarAModoNormal() {
+		calculadora.getLogo().setVisible(true);
 		calculadora.getContentPane().setBackground(new Color(178, 235, 242));
-		calculadora.getCajaTexto1().setForeground(new Color(189, 189, 189));
+		calculadora.getCajaTexto1().setForeground(new Color(0, 151, 167));
 		calculadora.getCajaTexto2().setForeground(new Color(0, 151, 167));
 		calculadora.getEtiqueta1().setForeground(new Color(105,105,105));
+		calculadora.getEtiqueta1().setBounds(50, 35, 230, 40);
 		calculadora.getEtiqueta4().setForeground(new Color(117, 117, 117));
 		calculadora.getEtiqueta2().setForeground(new Color(117, 117, 117));
 		
@@ -307,10 +310,13 @@ public class AdminEventos implements ActionListener, ChangeListener, MouseListen
 	}
 
 	public void cambiarAModoAccesibilidad() {
+		calculadora.getLogo().setVisible(false);
 		calculadora.getContentPane().setBackground(new Color(33, 33, 33));
-		calculadora.getCajaTexto1().setForeground(new Color(189, 189, 189));
+		calculadora.getCajaTexto1().setForeground(new Color(33, 33, 33));
 		calculadora.getCajaTexto2().setForeground(new Color(33, 33, 33));
 		calculadora.getEtiqueta1().setForeground(new Color(205, 220, 57));
+		calculadora.getEtiqueta1().setBounds(0, 35, 400, 40);
+		calculadora.getEtiqueta1().setHorizontalAlignment(SwingConstants.CENTER);
 		calculadora.getEtiqueta4().setForeground(new Color(117, 117, 117));
 		calculadora.getEtiqueta2().setForeground(new Color(205, 220, 57));
 		

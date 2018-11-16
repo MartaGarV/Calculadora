@@ -74,9 +74,9 @@ public class Calculadora extends JFrame {
 			cajaTexto1 = new JTextField();
 			cajaTexto1.setBounds(70, 110, 260, 40);
 			cajaTexto1.setFont(font.deriveFont(Font.PLAIN, 25f));
-			cajaTexto1.setForeground(new Color(189, 189, 189));
+			cajaTexto1.setForeground(new Color(117, 117, 117));
 			TextPrompt placeholder = new TextPrompt("Número 1", cajaTexto1);
-			placeholder.changeAlpha(0.75f);
+			placeholder.changeAlpha(0.30f);
 			placeholder.changeStyle(Font.ITALIC);
 			//le quito los bordes
 			cajaTexto1.setBorder(null);
@@ -85,10 +85,10 @@ public class Calculadora extends JFrame {
 			cajaTexto2 = new JTextField();
 			cajaTexto2.setBounds(70, 170, 260, 40);
 			cajaTexto2.setFont(font.deriveFont(Font.PLAIN, 25f));
-			cajaTexto2.setForeground(new Color(0, 151, 167));
+			cajaTexto2.setForeground(new Color(117, 117, 117));
 			TextPrompt placeholder1 = new TextPrompt("Número 2", cajaTexto2);
-			placeholder.changeAlpha(0.75f);
-			placeholder.changeStyle(Font.ITALIC);
+			placeholder1.changeAlpha(0.30f);
+			placeholder1.changeStyle(Font.ITALIC);
 			//le quito los bordes
 			cajaTexto2.setBorder(null);
 			add(cajaTexto2);
